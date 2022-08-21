@@ -147,8 +147,8 @@ function check_product()
         echo "Couldn't locate the top of the tree.  Try setting TOP." >&2
         return
     fi
-    if (echo -n $1 | grep -q -e "^stag_") ; then
-        STAG_BUILD=$(echo -n $1 | sed -e 's/^stag_//g')
+    if (echo -n $1 | grep -q -e "^mosquito_") ; then
+        STAG_BUILD=$(echo -n $1 | sed -e 's/^mosquito_//g')
     else
         STAG_BUILD=
     fi
@@ -710,7 +710,7 @@ function lunch()
         T=$(gettop)
         C=$(pwd)
         cd $T
-        $T/vendor/stag/build/tools/stagify.py $product
+        $T/vendor/mosquito/build/tools/stagify.py $product
         cd $C
         check_product $product
     fi
@@ -719,13 +719,13 @@ function lunch()
         # if we can't find a product, try to grab it off the StagOS-Devices GitHub
         T=$(gettop)
         cd $T > /dev/null
-        vendor/stag/build/tools/roomservice.py $product
+        vendor/mosquito/build/tools/roomservice.py $product
         cd - > /dev/null
         check_product $product
     else
         T=$(gettop)
         cd $T > /dev/null
-        vendor/stag/build/tools/roomservice.py $product true
+        vendor/mosquito/build/tools/roomservice.py $product true
         cd - > /dev/null
     fi
 
