@@ -55,7 +55,7 @@ if [ -n "$BUILD_THUMBPRINT" ] ; then
   echo "ro.build.thumbprint=$BUILD_THUMBPRINT"
 fi
 
-echo "ro.stag.device=$STAG_DEVICE"
-echo "ro.stag.releasetype=$STAG_BUILD_TYPE"
+echo "ro.mosquito.device=$MOSQUITO_DEVICE"
+echo "ro.mosquito.releasetype=$MOSQUITO_BUILD_TYPE"
 
 echo "# end build properties"
